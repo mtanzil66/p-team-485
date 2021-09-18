@@ -23,7 +23,17 @@ namespace RealTimeChat.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Channels()
+        {
+            return View();
+        }
+
+        public IActionResult CreateChannel()
+        {
+            return View();
+        }
+
+        public IActionResult Users()
         {
             return View();
         }
