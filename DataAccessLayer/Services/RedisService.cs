@@ -51,7 +51,7 @@ namespace DataAccessLayer.IServices
         public async Task AddUser(User user)
         {
 
-            await _redisDb.HashSetAsync("user:ayaz", ToHashEntries(user));
+            await _redisDb.HashSetAsync($"user:{user.username}", ToHashEntries(user));
 
             await _redisDb.SetAddAsync("usernames", user.username);
 
