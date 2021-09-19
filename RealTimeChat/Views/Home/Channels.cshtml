@@ -1,4 +1,5 @@
-﻿@{
+﻿@model RealTimeChat.Models.ChannelViewModel;
+@{
     Layout = null;
 }
 
@@ -23,8 +24,7 @@
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="~/assets/media/logos/favicon.ico" />
     <style>
-        .active.bg-light-primary{
-
+        .active.bg-light-primary {
         }
     </style>
 </head>
@@ -106,7 +106,7 @@
                             <!--end::Menu Wrapper-->
                             <!--begin::Toolbar-->
                             <div class="d-flex align-items-center py-3 py-lg-2">
-                                
+
                                 <!--begin::Dropdown-->
                                 <div class="dropdown dropdown-inline" data-toggle="tooltip" title="Filter" data-placement="left">
                                     <a href="#" class="btn btn-icon btn-light h-40px w-40px" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -141,57 +141,18 @@
                                             <hr />
                                             <!--begin:Users-->
                                             <div class="mt-7 scroll scroll-pull">
-                                                <a href="#" class=" active bg-light-primary d-flex align-items-center justify-content-between" style="padding: 10px">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="d-flex flex-column">
-                                                            <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">
-                                                                <i class="fa fa-hashtag"></i> Hackfest
+                                                @foreach (var channel in Model.ListChannels.channels)
+                                                {
+                                                    <a href="/Home/Channels?c=@channel" class="@(channel == Model.CurrentChannel ? "bg-light-primary" : "") d-flex align-items-center justify-content-between" style="padding: 10px">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="d-flex flex-column">
+                                                                <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">
+                                                                    <i class="fa fa-hashtag"></i> @channel
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="d-flex flex-column align-items-end">
-                                                        <span class="text-muted font-weight-bold font-size-sm">35 mins</span>
-                                                    </div>
-                                                </a>
-
-                                                <a href="#" class="d-flex align-items-center justify-content-between" style="padding: 10px">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="d-flex flex-column">
-                                                            <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">
-                                                                <i class="fa fa-hashtag"></i> Channel-2
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex flex-column align-items-end">
-                                                        <span class="text-muted font-weight-bold font-size-sm">35 mins</span>
-                                                    </div>
-                                                </a>
-
-                                                <a href="#" class="d-flex align-items-center justify-content-between" style="padding: 10px">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="d-flex flex-column">
-                                                            <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">
-                                                                <i class="fa fa-hashtag"></i> Channel-3
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex flex-column align-items-end">
-                                                        <span class="text-muted font-weight-bold font-size-sm">35 mins</span>
-                                                    </div>
-                                                </a>
-
-                                                <a href="#" class="d-flex align-items-center justify-content-between" style="padding: 10px">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="d-flex flex-column">
-                                                            <div class="text-dark-75 text-hover-primary font-weight-bold font-size-lg">
-                                                                <i class="fa fa-hashtag"></i> Channel-4
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex flex-column align-items-end">
-                                                        <span class="text-muted font-weight-bold font-size-sm">35 mins</span>
-                                                    </div>
-                                                </a>
+                                                    </a>
+                                                }
                                             </div>
                                             <!--end:Users-->
                                         </div>
@@ -231,22 +192,22 @@
                                                         <!--begin::Navigation-->
                                                         <ul class="navi navi-hover py-5">
                                                             <li class="navi-item">
-                                                                <a href="#" class="navi-link">
+                                                                <a href="/Home/CreateChannel" class="navi-link">
                                                                     <span class="navi-icon">
                                                                         <i class="flaticon2-drop"></i>
                                                                     </span>
-                                                                    <span class="navi-text">New Group</span>
+                                                                    <span class="navi-text">New Channel</span>
                                                                 </a>
                                                             </li>
                                                             <li class="navi-item">
-                                                                <a href="#" class="navi-link">
+                                                                <a href="/Home/Users" class="navi-link">
                                                                     <span class="navi-icon">
                                                                         <i class="flaticon2-user-1"></i>
                                                                     </span>
                                                                     <span class="navi-text">Users</span>
                                                                 </a>
                                                             </li>
-              
+
                                                         </ul>
                                                         <!--end::Navigation-->
                                                     </div>
@@ -255,26 +216,18 @@
                                             </div>
                                             <div class="text-center flex-grow-1">
                                                 <div class="text-dark-75 font-weight-bold font-size-h5">
-                                                    Hackfest
+                                                    @Model.CurrentChannel
                                                     <div class="symbol-group symbol-hover justify-content-center">
-                                                        <div class="symbol symbol-35 symbol-circle" data-toggle="tooltip" title="" data-original-title="Ana Fox">
-                                                            <span class="symbol-label">M</span>
-                                                        </div>
-                                                        <div class="symbol symbol-35 symbol-circle" data-toggle="tooltip" title="" data-original-title="Nich Nilson">
-                                                            <span class="symbol-label">T</span>
-                                                        </div>
-                                                        <div class="symbol symbol-35 symbol-circle" data-toggle="tooltip" title="" data-original-title="James Stone">
-                                                            <span class="symbol-label">B</span>
-                                                        </div>
-                                                        <div class="symbol symbol-35 symbol-circle" data-toggle="tooltip" title="" data-original-title="Micheal Bold">
-                                                            <span class="symbol-label">C</span>
-                                                        </div>
-                                                        <div class="symbol symbol-35 symbol-circle" data-toggle="tooltip" title="" data-original-title="Sean Cooper">
-                                                            <span class="symbol-label">A</span>
-                                                        </div>
-                                                        <div class="symbol symbol-35 symbol-circle symbol-light-success" data-toggle="tooltip" title="" data-original-title="Invite someone">
-                                                            <span class="symbol-label font-weight-bold">5+</span>
-                                                        </div>
+                                                        @foreach (var u in Model.ChannelUsers.users)
+                                                        {
+                                                            if (u != Model.loggedUser)
+                                                            {
+                                                                <div class="symbol symbol-35 symbol-circle" data-toggle="tooltip" title="" data-original-title="@u">
+                                                                    <span class="symbol-label">@u[0]</span>
+                                                                </div>
+                                                            }
+
+                                                        }
                                                     </div>
                                                 </div>
                                             </div>
@@ -288,35 +241,40 @@
                                             <div class="scroll scroll-pull" data-mobile-height="350">
                                                 <!--begin::Messages-->
                                                 <div class="messages">
-                                                    <!--begin::Message In-->
-                                                    <div class="d-flex flex-column mb-5 align-items-start">
-                                                        <div class="d-flex align-items-center">
-                                                            <div class="symbol symbol-circle symbol-40 mr-3">
-                                                                <img alt="Pic" src="~/assets/media/users/300_12.jpg" />
+                                                    @foreach (var message in Model.Messages)
+                                                    {
+                                                        if (message.username != Model.loggedUser)
+                                                        {
+                                                            <div class="d-flex flex-column mb-5 align-items-start">
+                                                                <div class="d-flex align-items-center">
+                                                                    <div class="symbol symbol-circle symbol-40 mr-3">
+                                                                        <img alt="Pic" src="~/assets/media/users/300_12.jpg" />
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="javascript:;" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">@message.username</a>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">@message.message</div>
                                                             </div>
-                                                            <div>
-                                                                <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
-                                                                <span class="text-muted font-size-sm">2 Hours</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="d-flex flex-column mb-5 align-items-end">
+                                                                <div class="d-flex align-items-center">
+                                                                    <div>
+                                                                        <span class="text-muted font-size-sm"></span>
+                                                                        <a href="javascript:;" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
+                                                                    </div>
+                                                                    <div class="symbol symbol-circle symbol-40 ml-3">
+                                                                        <img alt="Pic" src="~/assets/media/users/300_21.jpg" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">@message.message</div>
                                                             </div>
-                                                        </div>
-                                                        <div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">How likely are you to recommend our company to your friends and family?</div>
-                                                    </div>
-                                                    <!--end::Message In-->
-                                                    <!--begin::Message Out-->
-                                                    <div class="d-flex flex-column mb-5 align-items-end">
-                                                        <div class="d-flex align-items-center">
-                                                            <div>
-                                                                <span class="text-muted font-size-sm">3 minutes</span>
-                                                                <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
-                                                            </div>
-                                                            <div class="symbol symbol-circle symbol-40 ml-3">
-                                                                <img alt="Pic" src="~/assets/media/users/300_21.jpg" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on GitHub.</div>
-                                                    </div>
-                                                    <!--end::Message Out-->
-                                                    
+                                                        }
+                                                    }
+
                                                 </div>
                                                 <!--end::Messages-->
                                             </div>
@@ -325,22 +283,18 @@
                                         <!--end::Body-->
                                         <!--begin::Footer-->
                                         <div class="card-footer align-items-center">
-                                            <!--begin::Compose-->
-                                            <textarea class="form-control border-0 p-0" rows="2" placeholder="Type a message"></textarea>
-                                            <div class="d-flex align-items-center justify-content-between mt-5">
-                                                <div class="mr-3">
-                                                    <a href="#" class="btn btn-clean btn-icon btn-md mr-1">
-                                                        <i class="flaticon2-photograph icon-lg"></i>
-                                                    </a>
-                                                    <a href="#" class="btn btn-clean btn-icon btn-md">
-                                                        <i class="flaticon2-photo-camera icon-lg"></i>
-                                                    </a>
+                                            <form asp-action="PostMessage" method="post">
+                                                <!--begin::Compose-->
+                                                <input type="hidden" name="Channel" value="@Model.CurrentChannel" />
+                                                <textarea name="Message" class="form-control border-0 p-0" rows="2" placeholder="Type a message"></textarea>
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="mr-3">
+                                                    </div>
+                                                    <div>
+                                                        <input type="submit" class="btn btn-primary btn-md text-uppercase font-weight-bold py-2 px-6" value="send" />
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <button type="button" class="btn btn-primary btn-md text-uppercase font-weight-bold chat-send py-2 px-6">Send</button>
-                                                </div>
-                                            </div>
-                                            <!--begin::Compose-->
+                                            </form>
                                         </div>
                                         <!--end::Footer-->
                                     </div>

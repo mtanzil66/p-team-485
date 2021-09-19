@@ -1,4 +1,5 @@
-﻿@{
+﻿@model RealTimeChat.Models.ChannelFormModel;
+@{
     Layout = null;
 }
 
@@ -88,7 +89,7 @@
                                     <div class="row justify-content-center py-8 px-8 py-lg-15 px-lg-10">
                                         <div class="col-xl-12 col-xxl-10">
                                             <!--begin::Wizard Form-->
-                                            <form class="form" id="kt_form">
+                                            <form class="form" id="kt_form" method="post" asp-action="CreateChannel">
                                                 <div class="row justify-content-center">
                                                     <div class="col-xl-9">
                                                         <!--begin::Wizard Step 1-->
@@ -106,7 +107,8 @@
                                                                                 <i class="fa fa-hashtag"></i>
                                                                             </span>
                                                                         </div>
-                                                                        <input type="text" class="form-control form-control-solid form-control-lg" name="channel" value="" placeholder="Channel Name" />
+                                                                        <input class="form-control form-control-solid form-control-lg" asp-for="channel" />
+                                                                        <span asp-validation-for="channel"></span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -118,7 +120,7 @@
                                                             <div class="mr-2">
                                                             </div>
                                                             <div>
-                                                                <button type="button" class="btn btn-success font-weight-bolder px-9 py-4" data-wizard-type="action-submit">Create</button>
+                                                                <input type="submit" class="btn btn-success font-weight-bolder px-9 py-4" value="Create" />
                                                             </div>
                                                         </div>
                                                         <!--end::Wizard Actions-->

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<string>;
+@{
     Layout = null;
 }
 
@@ -90,7 +91,7 @@
                                         <li class="menu-item">
                                             <span class="btn btn-primary" style="font-size: 1.1em"><i class="fa fa-comment-dots" style="font-size: 20px;"></i> ChatBox</span>
                                             <a href="javascript:;" class="menu-link menu-toggle">
-                                                <span class="menu-text">{...} Users</span>
+                                                <span class="menu-text">Users</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -131,7 +132,7 @@
                                 <!--end::Separator-->
                                 <!--begin::Search Form-->
                                 <div class="d-flex align-items-center" id="kt_subheader_search">
-                                    <span class="text-dark-50 font-weight-bold" id="kt_subheader_total">450 Total</span>
+                                    <span class="text-dark-50 font-weight-bold" id="kt_subheader_total">@(Model.Count) Total</span>
                                     <form class="ml-5">
                                         <div class="input-group input-group-sm input-group-solid" style="max-width: 175px">
                                             <input type="text" class="form-control" id="kt_subheader_search_form" placeholder="Search...">
@@ -172,320 +173,36 @@
                         <div class="container-fluid">
                             <!--begin::Row-->
                             <div class="row">
-                                <!--begin::Col-->
-                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                                    <!--begin::Card-->
-                                    <div class="card card-custom gutter-b card-stretch">
-                                        <!--begin::Body-->
-                                        <div class="card-body text-center pt-4">
-                                            <!--begin::User-->
-                                            <div class="mt-7 pb-2">
-                                                <div class="symbol symbol-circle symbol-lg-5 d-none">
-                                                    <img src="assets/media/users/300_1.jpg" alt="image">
+                                @foreach (var u in Model)
+                                {
+                                    <!--begin::Col-->
+                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                                        <!--begin::Card-->
+                                        <div class="card card-custom gutter-b card-stretch">
+                                            <!--begin::Body-->
+                                            <div class="card-body text-center pt-4">
+                                                <!--begin::User-->
+                                                <div class="mt-7 pb-2">
+                                                    <div class="symbol symbol-circle symbol-lg-5 d-none">
+                                                        <img src="assets/media/users/300_1.jpg" alt="image">
+                                                    </div>
+                                                    <div class="symbol symbol-lg-75 symbol-circle symbol-light-success">
+                                                        <span class="font-size-h3 symbol-label font-weight-boldest">@u.Substring(0,2)</span>
+                                                    </div>
                                                 </div>
-                                                <div class="symbol symbol-lg-75 symbol-circle symbol-light-success">
-                                                    <span class="font-size-h3 symbol-label font-weight-boldest">MP</span>
+                                                <div class="my-2">
+                                                    <a href="javascript:;" class="label label-inline label-lg label-light-success font-weight-bold text-primary font-weight-bold text-hover-primary font-size-h5"><i class="fa fa-at text-primary"></i> @u</a>
                                                 </div>
                                             </div>
-                                            <!--end::User-->
-                                            <!--begin::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Matt Pears</a>
-                                            </div>
-                                            <div class="my-2">
-                                                <a href="#" class="label label-inline label-lg label-light-success font-weight-bold text-primary font-weight-bold text-hover-primary font-size-h5">@@Andrew</a>
-                                            </div>
-                                            <!--end::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary">Karachi, Pakistan</a>
-                                            </div>
-
+                                            <!--end::Body-->
                                         </div>
-                                        <!--end::Body-->
+                                        <!--end::Card-->
                                     </div>
-                                    <!--end::Card-->
-                                </div>
-                                <!--end::Col-->
-                                <!--begin::Col-->
-                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                                    <!--begin::Card-->
-                                    <div class="card card-custom gutter-b card-stretch">
-                                        <!--begin::Body-->
-                                        <div class="card-body text-center pt-4">
-                                            <!--begin::User-->
-                                            <div class="mt-7 pb-2">
-                                                <div class="symbol symbol-circle symbol-lg-5 d-none">
-                                                    <img src="assets/media/users/300_1.jpg" alt="image">
-                                                </div>
-                                                <div class="symbol symbol-lg-75 symbol-circle symbol-light-success">
-                                                    <span class="font-size-h3 symbol-label font-weight-boldest">MP</span>
-                                                </div>
-                                            </div>
-                                            <!--end::User-->
-                                            <!--begin::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Matt Pears</a>
-                                            </div>
-                                            <div class="my-2">
-                                                <a href="#" class="label label-inline label-lg label-light-success font-weight-bold text-primary font-weight-bold text-hover-primary font-size-h5">@@Andrew</a>
-                                            </div>
-                                            <!--end::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary">Karachi, Pakistan</a>
-                                            </div>
-
-                                        </div>
-                                        <!--end::Body-->
-                                    </div>
-                                    <!--end::Card-->
-                                </div>
-                                <!--end::Col-->
-                                <!--begin::Col-->
-                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                                    <!--begin::Card-->
-                                    <div class="card card-custom gutter-b card-stretch">
-                                        <!--begin::Body-->
-                                        <div class="card-body text-center pt-4">
-                                            <!--begin::User-->
-                                            <div class="mt-7 pb-2">
-                                                <div class="symbol symbol-circle symbol-lg-5 d-none">
-                                                    <img src="assets/media/users/300_1.jpg" alt="image">
-                                                </div>
-                                                <div class="symbol symbol-lg-75 symbol-circle symbol-light-success">
-                                                    <span class="font-size-h3 symbol-label font-weight-boldest">MP</span>
-                                                </div>
-                                            </div>
-                                            <!--end::User-->
-                                            <!--begin::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Matt Pears</a>
-                                            </div>
-                                            <div class="my-2">
-                                                <a href="#" class="label label-inline label-lg label-light-success font-weight-bold text-primary font-weight-bold text-hover-primary font-size-h5">@@Andrew</a>
-                                            </div>
-                                            <!--end::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary">Karachi, Pakistan</a>
-                                            </div>
-
-                                        </div>
-                                        <!--end::Body-->
-                                    </div>
-                                    <!--end::Card-->
-                                </div>
-                                <!--end::Col-->
-                                <!--begin::Col-->
-                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                                    <!--begin::Card-->
-                                    <div class="card card-custom gutter-b card-stretch">
-                                        <!--begin::Body-->
-                                        <div class="card-body text-center pt-4">
-                                            <!--begin::User-->
-                                            <div class="mt-7 pb-2">
-                                                <div class="symbol symbol-circle symbol-lg-5 d-none">
-                                                    <img src="assets/media/users/300_1.jpg" alt="image">
-                                                </div>
-                                                <div class="symbol symbol-lg-75 symbol-circle symbol-light-success">
-                                                    <span class="font-size-h3 symbol-label font-weight-boldest">MP</span>
-                                                </div>
-                                            </div>
-                                            <!--end::User-->
-                                            <!--begin::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Matt Pears</a>
-                                            </div>
-                                            <div class="my-2">
-                                                <a href="#" class="label label-inline label-lg label-light-success font-weight-bold text-primary font-weight-bold text-hover-primary font-size-h5">@@Andrew</a>
-                                            </div>
-                                            <!--end::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary">Karachi, Pakistan</a>
-                                            </div>
-
-                                        </div>
-                                        <!--end::Body-->
-                                    </div>
-                                    <!--end::Card-->
-                                </div>
-                                <!--end::Col-->
+                                    <!--end::Col-->
+                                }
                             </div>
                             <!--end::Row-->
-                            <!--begin::Row-->
-                            <div class="row">
-                                <!--begin::Col-->
-                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                                    <!--begin::Card-->
-                                    <div class="card card-custom gutter-b card-stretch">
-                                        <!--begin::Body-->
-                                        <div class="card-body text-center pt-4">
-                                            <!--begin::User-->
-                                            <div class="mt-7 pb-2">
-                                                <div class="symbol symbol-circle symbol-lg-5 d-none">
-                                                    <img src="assets/media/users/300_1.jpg" alt="image">
-                                                </div>
-                                                <div class="symbol symbol-lg-75 symbol-circle symbol-light-success">
-                                                    <span class="font-size-h3 symbol-label font-weight-boldest">MP</span>
-                                                </div>
-                                            </div>
-                                            <!--end::User-->
-                                            <!--begin::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Matt Pears</a>
-                                            </div>
-                                            <div class="my-2">
-                                                <a href="#" class="label label-inline label-lg label-light-success font-weight-bold text-primary font-weight-bold text-hover-primary font-size-h5">@@Andrew</a>
-                                            </div>
-                                            <!--end::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary">Karachi, Pakistan</a>
-                                            </div>
-
-                                        </div>
-                                        <!--end::Body-->
-                                    </div>
-                                    <!--end::Card-->
-                                </div>
-                                <!--end::Col-->
-                                <!--begin::Col-->
-                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                                    <!--begin::Card-->
-                                    <div class="card card-custom gutter-b card-stretch">
-                                        <!--begin::Body-->
-                                        <div class="card-body text-center pt-4">
-                                            <!--begin::User-->
-                                            <div class="mt-7 pb-2">
-                                                <div class="symbol symbol-circle symbol-lg-5 d-none">
-                                                    <img src="assets/media/users/300_1.jpg" alt="image">
-                                                </div>
-                                                <div class="symbol symbol-lg-75 symbol-circle symbol-light-success">
-                                                    <span class="font-size-h3 symbol-label font-weight-boldest">MP</span>
-                                                </div>
-                                            </div>
-                                            <!--end::User-->
-                                            <!--begin::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Matt Pears</a>
-                                            </div>
-                                            <div class="my-2">
-                                                <a href="#" class="label label-inline label-lg label-light-success font-weight-bold text-primary font-weight-bold text-hover-primary font-size-h5">@@Andrew</a>
-                                            </div>
-                                            <!--end::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary">Karachi, Pakistan</a>
-                                            </div>
-
-                                        </div>
-                                        <!--end::Body-->
-                                    </div>
-                                    <!--end::Card-->
-                                </div>
-                                <!--end::Col-->
-                                <!--begin::Col-->
-                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                                    <!--begin::Card-->
-                                    <div class="card card-custom gutter-b card-stretch">
-                                        <!--begin::Body-->
-                                        <div class="card-body text-center pt-4">
-                                            <!--begin::User-->
-                                            <div class="mt-7 pb-2">
-                                                <div class="symbol symbol-circle symbol-lg-5 d-none">
-                                                    <img src="assets/media/users/300_1.jpg" alt="image">
-                                                </div>
-                                                <div class="symbol symbol-lg-75 symbol-circle symbol-light-success">
-                                                    <span class="font-size-h3 symbol-label font-weight-boldest">MP</span>
-                                                </div>
-                                            </div>
-                                            <!--end::User-->
-                                            <!--begin::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Matt Pears</a>
-                                            </div>
-                                            <div class="my-2">
-                                                <a href="#" class="label label-inline label-lg label-light-success font-weight-bold text-primary font-weight-bold text-hover-primary font-size-h5">@@Andrew</a>
-                                            </div>
-                                            <!--end::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary">Karachi, Pakistan</a>
-                                            </div>
-
-                                        </div>
-                                        <!--end::Body-->
-                                    </div>
-                                    <!--end::Card-->
-                                </div>
-                                <!--end::Col-->
-                                <!--begin::Col-->
-                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
-                                    <!--begin::Card-->
-                                    <div class="card card-custom gutter-b card-stretch">
-                                        <!--begin::Body-->
-                                        <div class="card-body text-center pt-4">
-                                            <!--begin::User-->
-                                            <div class="mt-7 pb-2">
-                                                <div class="symbol symbol-circle symbol-lg-5 d-none">
-                                                    <img src="assets/media/users/300_1.jpg" alt="image">
-                                                </div>
-                                                <div class="symbol symbol-lg-75 symbol-circle symbol-light-success">
-                                                    <span class="font-size-h3 symbol-label font-weight-boldest">MP</span>
-                                                </div>
-                                            </div>
-                                            <!--end::User-->
-                                            <!--begin::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary font-size-h4">Matt Pears</a>
-                                            </div>
-                                            <div class="my-2">
-                                                <a href="#" class="label label-inline label-lg label-light-success font-weight-bold text-primary font-weight-bold text-hover-primary font-size-h5">@@Andrew</a>
-                                            </div>
-                                            <!--end::Name-->
-                                            <div class="my-2">
-                                                <a href="#" class="text-dark font-weight-bold text-hover-primary">Karachi, Pakistan</a>
-                                            </div>
-
-                                        </div>
-                                        <!--end::Body-->
-                                    </div>
-                                    <!--end::Card-->
-                                </div>
-                                <!--end::Col-->
-                            </div>
-                            <!--end::Row-->
-                            <!--begin::Pagination-->
-                            <div class="d-flex justify-content-between align-items-center flex-wrap">
-                                <div class="d-flex flex-wrap mr-3">
-                                    <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
-                                        <i class="ki ki-bold-double-arrow-back icon-xs"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
-                                        <i class="ki ki-bold-arrow-back icon-xs"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">...</a>
-                                    <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">23</a>
-                                    <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary active mr-2 my-1">24</a>
-                                    <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">25</a>
-                                    <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">26</a>
-                                    <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">27</a>
-                                    <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">28</a>
-                                    <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1">...</a>
-                                    <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
-                                        <i class="ki ki-bold-arrow-next icon-xs"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
-                                        <i class="ki ki-bold-double-arrow-next icon-xs"></i>
-                                    </a>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <select class="form-control form-control-sm text-primary font-weight-bold mr-4 border-0 bg-light-primary" style="width: 75px;">
-                                        <option value="10">10</option>
-                                        <option value="20">20</option>
-                                        <option value="30">30</option>
-                                        <option value="50">50</option>
-                                        <option value="100">100</option>
-                                    </select>
-                                    <span class="text-muted">Displaying 10 of 230 records</span>
-                                </div>
-                            </div>
-                            <!--end::Pagination-->
+                            
                         </div>
                         <!--end::Container-->
                     </div>
